@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscar Ceballos Cano — UX/UI Designer & Front-End Developer</title>
+    <meta name="description"
+        content="Portfolio profesional de Oscar Ceballos Cano. UX/UI Designer y Junior Front-End Developer especializado en Design-to-Code. Visible en el MWC 2026." />
+    <meta name="author" content="Oscar Ceballos Cano" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://osceballos.github.io/" />
+    <meta property="og:title" content="Oscar Ceballos Cano — UX/UI Designer & Front-End Developer" />
+    <meta property="og:description"
+        content="Diseñador que programa. Portfolio de proyectos en Smart City, interfaces y automatización con IA. Design-to-Code Efficiency." />
+    <meta property="og:image" content="https://osceballos.github.io/og-image.png" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Oscar Ceballos Cano — UX/UI Designer & Front-End Developer" />
+    <meta name="twitter:description"
+        content="Diseñador que programa. Portfolio de proyectos en Smart City, interfaces y automatización con IA." />
+    <meta name="twitter:image" content="https://osceballos.github.io/og-image.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://osceballos.github.io/" />
+
+    <!-- Favicon SVG inline -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%238B5CF6'/><text y='.9em' font-size='70' x='50%' dominant-baseline='middle' text-anchor='middle' fill='white'>O</text></svg>" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- JSON-LD: Structured Data (Google Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Oscar Ceballos Cano",
+      "jobTitle": "UX/UI Designer & Front-End Developer",
+      "url": "https://osceballos.github.io/",
+      "email": "oceballos.ofi@gmail.com",
+      "telephone": "+34652167639",
+      "sameAs": ["https://www.linkedin.com/in/oscar-ceballos-cano-ba11aa343"],
+      "knowsAbout": ["UX Design", "UI Design", "Figma", "JavaScript", "CSS", "Design Systems", "AI Workflows"]
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Skip to content (WCAG 2.4.1) -->
+    <a href="#projects" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  NAV                                                        -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="container nav__container">
+            <div class="nav__logo">
+                <span class="nav__logo-text">OCC</span>
+                <span class="nav__logo-dot" aria-hidden="true"></span>
+            </div>
+            <ul class="nav__links" role="list">
+                <li><a href="#projects" class="nav__link">Proyectos</a></li>
+                <li><a href="#stack" class="nav__link">Stack</a></li>
+                <li><a href="#philosophy" class="nav__link">Filosofía</a></li>
+                <li><a href="#contact" class="nav__link nav__link--cta" id="nav-contact-btn">Contacto</a></li>
+            </ul>
+            <button class="nav__menu-btn" id="nav-menu-btn" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="menu" aria-label="Menú móvil">
+        <ul class="mobile-nav__links" role="list">
+            <li><a href="#projects" class="mobile-nav__link">Proyectos</a></li>
+            <li><a href="#stack" class="mobile-nav__link">Stack</a></li>
+            <li><a href="#philosophy" class="mobile-nav__link">Filosofía</a></li>
+            <li><a href="#contact" class="mobile-nav__link">Contacto</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--  HERO                                                       -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="hero" id="hero" aria-label="Presentación">
+            <div class="hero__noise" aria-hidden="true"></div>
+            <div class="hero__grid-lines" aria-hidden="true"></div>
+
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <div class="hero__badge animate-fade-in">
+                        <span class="hero__badge-dot" aria-hidden="true"></span>
+                        <span>Disponible para nuevos proyectos · MWC 2026</span>
+                    </div>
+
+                    <h1 class="hero__name animate-slide-up">
+                        Oscar<br />
+                        <span class="hero__name-accent">Ceballos</span>
+                    </h1>
+
+                    <p class="hero__role animate-slide-up animate-delay-1">
+                        <span class="hero__role-static">UX/UI Designer </span>
+                        <span class="hero__role-separator" aria-hidden="true">&amp;</span>
+                        <span class="hero__role-dynamic" id="typewriter" aria-live="polite">Front-End Developer</span>
+                    </p>
+
+                    <p class="hero__tagline animate-slide-up animate-delay-2">
+                        Diseño que se convierte en código. Código que nace del diseño.<br />
+                        <span class="hero__tagline-mono">Design-to-Code Efficiency.</span>
+                    </p>
+
+                    <div class="hero__actions animate-slide-up animate-delay-3">
+                        <a href="#projects" class="btn btn--primary" id="hero-projects-btn">Ver proyectos</a>
+                        <a href="#contact" class="btn btn--ghost" id="hero-contact-btn">Contactar</a>
+                    </div>
+                </div>
+
+                <div class="hero__visual animate-fade-in animate-delay-2" aria-hidden="true">
+                    <div class="hero__orb hero__orb--1"></div>
+                    <div class="hero__orb hero__orb--2"></div>
+                    <div class="hero__orb hero__orb--3"></div>
+                    <div class="hero__card-preview">
+                        <div class="hero__card-line hero__card-line--1"></div>
+                        <div class="hero__card-line hero__card-line--2"></div>
+                        <div class="hero__card-line hero__card-line--3"></div>
+                        <div class="hero__card-chip">
+                            <span class="mono">&lt;design /&gt;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <a href="#projects" class="hero__scroll" aria-label="Ir a proyectos">
+                <div class="hero__scroll-wheel"></div>
+            </a>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--  PROJECTS — BENTO GRID                                      -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="projects section" id="projects" aria-label="Proyectos destacados">
+            <div class="container">
+                <header class="section__header reveal">
+                    <p class="section__label mono">// 01 — Featured_Projects</p>
+                    <h2 class="section__title">Proyectos que definen<br /><span class="gradient-text">el perfil.</span>
+                    </h2>
+                </header>
+
+                <div class="bento" role="list">
+
+                    <!-- Card 1 — Agentic Workflows (FEATURED - WIDE) -->
+                    <article class="bento__card bento__card--wide reveal" role="listitem"
+                        aria-label="Proyecto Agentic Workflows & Legacy Architecture">
+                        <div class="bento__card-img bento__card-img--ai" aria-hidden="true">
+                            <div class="bento__card-glow"></div>
+                            <div class="bento__card-overlay"></div>
+                            <div class="bento__card-mockup ai-mockup">
+                                <div class="ai-mockup__prompt">
+                                    <span class="mono">&gt; Agents: validate XML-First</span>
+                                </div>
+                                <div class="ai-mockup__output">
+                                    <div class="ai-mockup__line"></div>
+                                    <div class="ai-mockup__line shorter"></div>
+                                    <div class="ai-mockup__line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bento__card-body">
+                            <div class="bento__card-tags">
+                                <span class="tag">AI Agents</span>
+                                <span class="tag">XML-First</span>
+                                <span class="tag">CSS Variables</span>
+                                <span class="tag">Workflow Optimization</span>
+                            </div>
+                            <h3 class="bento__card-title">Agentic Workflows & Legacy Architecture</h3>
+                            <p class="bento__card-desc">Creación de un ecosistema de agentes para automatizar
+                                validaciones XML-First y maquetación Mercury en dtm+tagstudy.</p>
+                            <a href="#" class="bento__card-link" data-project="agentic-workflows"
+                                aria-label="Ver caso de estudio Agentic Workflows">Ver caso →</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 — Sant Vicenç Smart City -->
+                    <article class="bento__card reveal" role="listitem" aria-label="Proyecto Sant Vicenç Smart City">
+                        <div class="bento__card-img bento__card-img--city" aria-hidden="true">
+                            <div class="bento__card-glow"></div>
+                            <div class="bento__card-overlay"></div>
+                            <div class="bento__card-mockup city-mockup">
+                                <div class="city-mockup__header"><span></span><span></span><span></span></div>
+                                <div class="city-mockup__grid">
+                                    <div class="city-mockup__stat"><span class="mono">AQI</span><small>Optimal</small>
+                                    </div>
+                                    <div class="city-mockup__stat"><span class="mono">LIVE</span><small>Traffic</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bento__card-body">
+                            <div class="bento__card-tags">
+                                <span class="tag">Data Visualization</span>
+                                <span class="tag">Figma</span>
+                                <span class="tag">Mobile-First</span>
+                                <span class="tag">Smart Cities</span>
+                            </div>
+                            <h3 class="bento__card-title">Sant Vicenç Smart City</h3>
+                            <p class="bento__card-desc">Ecosistema digital que centraliza métricas urbanas mediante un
+                                Dashboard modular y App Mobile en Dark Mode.</p>
+                            <a href="#" class="bento__card-link" data-project="smart-city"
+                                aria-label="Ver caso de estudio Smart City">Ver caso →</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 — Immersive ASCII Login -->
+                    <article class="bento__card reveal" role="listitem"
+                        aria-label="Proyecto Immersive ASCII Login & Dashboard">
+                        <div class="bento__card-img bento__card-img--ui" aria-hidden="true">
+                            <div class="bento__card-glow"></div>
+                            <div class="bento__card-overlay"></div>
+                            <div class="bento__card-mockup ui-mockup">
+                                <div class="ui-mockup__nav">
+                                    <div class="ui-mockup__logo"></div>
+                                    <div class="ui-mockup__links"><span></span><span></span><span></span></div>
+                                </div>
+                                <div
+                                    style="padding: 1rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.6rem;">
+                                    [ RUNNING_ASCII_INTERFACE... ]
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bento__card-body">
+                            <div class="bento__card-tags">
+                                <span class="tag">Creative Coding</span>
+                                <span class="tag">DOM Manipulation</span>
+                                <span class="tag">ES6+</span>
+                            </div>
+                            <h3 class="bento__card-title">Immersive ASCII Login</h3>
+                            <p class="bento__card-desc">Fusión de estética retro-terminal con lógica de dashboard
+                                moderno y transiciones fluidas en Vanilla JS.</p>
+                            <a href="#" class="bento__card-link" data-project="ascii-login"
+                                aria-label="Ver caso de estudio ASCII Login">Ver caso →</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 — METAMIND -->
+                    <article class="bento__card reveal" role="listitem" aria-label="Proyecto METAMIND - Meta-Educación">
+                        <div class="bento__card-img bento__card-img--visual" aria-hidden="true">
+                            <div class="bento__card-glow"></div>
+                            <div class="bento__card-overlay"></div>
+                            <div class="bento__card-mockup visual-mockup">
+                                <div class="visual-mockup__node visual-mockup__node--1"><span class="mono">EDU</span>
+                                </div>
+                                <div class="visual-mockup__connector visual-mockup__connector--1"></div>
+                                <div class="visual-mockup__node visual-mockup__node--2"><span class="mono">AI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bento__card-body">
+                            <div class="bento__card-tags">
+                                <span class="tag">UX Research</span>
+                                <span class="tag">Gamification</span>
+                                <span class="tag">EdTech</span>
+                                <span class="tag">Accessibility</span>
+                            </div>
+                            <h3 class="bento__card-title">METAMIND — Educación</h3>
+                            <p class="bento__card-desc">Ecosistema 3D inmersivo con algoritmos de evaluación cognitiva
+                                que adaptan el currículum al alumno.</p>
+                            <a href="#" class="bento__card-link" data-project="metamind"
+                                aria-label="Ver caso de estudio METAMIND">Ver caso →</a>
+                        </div>
+                    </article>
+                </div>
+                <!-- /bento -->
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--  TECH STACK                                                  -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="stack section" id="stack" aria-label="Tecnologías">
+            <div class="container">
+                <header class="section__header reveal">
+                    <p class="section__label mono">// 02 — Tech_Stack</p>
+                    <h2 class="section__title">Las herramientas<br /><span class="gradient-text">del oficio.</span></h2>
+                </header>
+
+                <div class="stack__grid" role="list">
+
+                    <div class="stack__item reveal" role="listitem" tabindex="0"
+                        aria-label="Figma - Design & Prototyping">
+                        <div class="stack__icon stack__icon--figma" aria-hidden="true">
+                            <svg viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 28.5C19 25.6174 20.1589 22.8525 22.2218 20.8076C24.2847 18.7627 27.0826 17.6143 30 17.6143C32.9174 17.6143 35.7153 18.7627 37.7782 20.8076C39.8411 22.8525 41 25.6174 41 28.5C41 31.3826 39.8411 34.1475 37.7782 36.1924C35.7153 38.2373 32.9174 39.3857 30 39.3857C27.0826 39.3857 24.2847 38.2373 22.2218 36.1924C20.1589 34.1475 19 31.3826 19 28.5Z"
+                                    fill="#1ABCFE" transform="translate(-11, 0) scale(0.95)" />
+                                <path
+                                    d="M0 47.3857C0 44.5031 1.15893 41.7382 3.22183 39.6933C5.28473 37.6484 8.08262 36.5 11 36.5H19V47.3857C19 50.2683 17.8411 53.0332 15.7782 55.0781C13.7153 57.123 10.9174 58.2714 8 58.2714C5.08262 58.2714 2.28473 57.123 0.221827 55.0781C-1.84107 53.0332 -3 50.2683 -3 47.3857H0Z"
+                                    fill="#0ACF83" transform="translate(0, -1) scale(0.95)" />
+                                <path
+                                    d="M0 9.88571C0 7.00311 1.15893 4.23819 3.22183 2.19329C5.28473 0.148388 8.08262 -1 11 -1H19V20.7714H11C8.08262 20.7714 5.28473 19.623 3.22183 17.5781C1.15893 15.5332 0 12.7683 0 9.88571Z"
+                                    fill="#FF7262" transform="translate(0, -1) scale(0.95)" />
+                                <path
+                                    d="M19 -1H27C29.9174 -1 32.7153 0.148388 34.7782 2.19329C36.8411 4.23819 38 7.00311 38 9.88571C38 12.7683 36.8411 15.5332 34.7782 17.5781C32.7153 19.623 29.9174 20.7714 27 20.7714H19V-1Z"
+                                    fill="#F24E1E" transform="translate(0, -1) scale(0.95)" />
+                            </svg>
+                        </div>
+                        <h3 class="stack__name">Figma</h3>
+                        <p class="stack__desc">Design & Prototyping</p>
+                        <div class="stack__level" aria-label="Nivel experto">
+                            <div class="stack__level-bar" style="--level: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stack__item reveal" role="listitem" tabindex="0"
+                        aria-label="HTML5 CSS3 - Markup & Styles">
+                        <div class="stack__icon" aria-hidden="true">
+                            <span class="stack__icon-text mono">&lt;/&gt;</span>
+                        </div>
+                        <h3 class="stack__name">HTML5 / CSS3</h3>
+                        <p class="stack__desc">Markup & Styles</p>
+                        <div class="stack__level" aria-label="Nivel avanzado">
+                            <div class="stack__level-bar" style="--level: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stack__item reveal" role="listitem" tabindex="0"
+                        aria-label="JavaScript - Vanilla JS & Micro-interactions">
+                        <div class="stack__icon stack__icon--js" aria-hidden="true">
+                            <span class="stack__icon-text mono">JS</span>
+                        </div>
+                        <h3 class="stack__name">JavaScript</h3>
+                        <p class="stack__desc">Vanilla JS & Interactions</p>
+                        <div class="stack__level" aria-label="Nivel intermedio">
+                            <div class="stack__level-bar" style="--level: 50%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stack__item reveal" role="listitem" tabindex="0"
+                        aria-label="AI Workflows - Prompt Engineering y Automatización">
+                        <div class="stack__icon stack__icon--ai" aria-hidden="true">
+                            <span class="stack__icon-text mono">AI</span>
+                        </div>
+                        <h3 class="stack__name">AI Workflows</h3>
+                        <p class="stack__desc">Prompt Eng. & Automation</p>
+                        <div class="stack__level" aria-label="Nivel avanzado">
+                            <div class="stack__level-bar" style="--level: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stack__item reveal" role="listitem" tabindex="0"
+                        aria-label="UX Research - User Interviews y Testing">
+                        <div class="stack__icon stack__icon--ux" aria-hidden="true">
+                            <span class="stack__icon-text mono">UX</span>
+                        </div>
+                        <h3 class="stack__name">UX Research</h3>
+                        <p class="stack__desc">Interviews & Testing</p>
+                        <div class="stack__level" aria-label="Nivel experto">
+                            <div class="stack__level-bar" style="--level: 92%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stack__item reveal" role="listitem" tabindex="0"
+                        aria-label="Design Systems - Tokens y Componentes">
+                        <div class="stack__icon stack__icon--ds" aria-hidden="true">
+                            <span class="stack__icon-text mono">DS</span>
+                        </div>
+                        <h3 class="stack__name">Design Systems</h3>
+                        <p class="stack__desc">Tokens & Components</p>
+                        <div class="stack__level" aria-label="Nivel avanzado">
+                            <div class="stack__level-bar" style="--level: 85%"></div>
+                        </div>
+                    </div>
+
+                </div><!-- /stack__grid -->
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--  PHILOSOPHY                                                  -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="philosophy section" id="philosophy" aria-label="Experiencia y filosofía">
+            <div class="container">
+                <header class="section__header reveal">
+                    <p class="section__label mono">// 03 — Philosophy</p>
+                    <h2 class="section__title">El diseñador<br /><span class="gradient-text">que programa.</span></h2>
+                </header>
+
+                <div class="philosophy__grid">
+
+                    <blockquote class="philosophy__quote reveal">
+                        <p>"El mejor código es aquel que nunca necesita explicarse porque el diseño ya habla por sí
+                            solo."</p>
+                        <footer class="philosophy__quote-author">— Oscar Ceballos Cano</footer>
+                    </blockquote>
+
+                    <div class="philosophy__cards">
+
+                        <div class="philosophy__card reveal">
+                            <div class="philosophy__card-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                </svg>
+                            </div>
+                            <h3 class="philosophy__card-title">Design First</h3>
+                            <p class="philosophy__card-text">Cada línea de código comienza en Figma. La consistencia
+                                visual no es un detalle, es la arquitectura del producto.</p>
+                        </div>
+
+                        <div class="philosophy__card reveal">
+                            <div class="philosophy__card-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <polyline points="16 18 22 12 16 6" />
+                                    <polyline points="8 6 2 12 8 18" />
+                                </svg>
+                            </div>
+                            <h3 class="philosophy__card-title">Code Ownership</h3>
+                            <p class="philosophy__card-text">Diseñar desde el código elimina las fricciones entre
+                                departamentos. Lo que se diseña, yo lo construyo.</p>
+                        </div>
+
+                        <div class="philosophy__card reveal">
+                            <div class="philosophy__card-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                </svg>
+                            </div>
+                            <h3 class="philosophy__card-title">AI-Augmented</h3>
+                            <p class="philosophy__card-text">La IA no reemplaza el criterio de diseño, lo amplifica.
+                                Flujos de trabajo que producen en horas lo que antes tomaba semanas.</p>
+                        </div>
+
+                    </div><!-- /philosophy__cards -->
+
+                </div><!-- /philosophy__grid -->
+
+                <!-- Stats bar -->
+                <div class="stats reveal" aria-label="Estadísticas profesionales">
+                    <div class="stats__item">
+                        <span class="stats__number mono" data-target="6">0</span><span class="stats__suffix">+</span>
+                        <p class="stats__label">Años en diseño</p>
+                    </div>
+                    <div class="stats__divider" aria-hidden="true"></div>
+                    <div class="stats__item">
+                        <span class="stats__number mono" data-target="210">0</span><span class="stats__suffix">+</span>
+                        <p class="stats__label">Empresas trabajadas</p>
+                    </div>
+                    <div class="stats__divider" aria-hidden="true"></div>
+                    <div class="stats__item">
+                        <span class="stats__number mono" data-target="40">0</span><span class="stats__suffix">%</span>
+                        <p class="stats__label">Grandes marcas</p>
+                    </div>
+                    <div class="stats__divider" aria-hidden="true"></div>
+                    <div class="stats__item">
+                        <span class="stats__number mono" data-target="100">0</span><span class="stats__suffix">%</span>
+                        <p class="stats__label">Design-to-Code</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--  CONTACT                                                     -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <section class="contact section" id="contact" aria-label="Sección de contacto">
+            <div class="container">
+                <div class="contact__inner reveal">
+                    <p class="section__label mono">// 04 — Contact</p>
+                    <h2 class="contact__title">¿Hablamos?</h2>
+                    <p class="contact__subtitle">Disponible para roles de <strong>UX/UI Designer</strong>,
+                        <strong>Product Designer</strong> o <strong>Front-End Developer</strong>. También para proyectos
+                        freelance y colaboraciones.
+                    </p>
+
+                    <div class="contact__actions">
+                        <a href="https://www.linkedin.com/in/oscar-ceballos-cano-ba11aa343" target="_blank"
+                            rel="noopener noreferrer" class="btn btn--primary btn--lg" id="contact-linkedin-btn"
+                            aria-label="Ver perfil de LinkedIn de Oscar Ceballos">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+
+                    <p class="contact__email">
+                        O escribe directamente a <a href="mailto:oceballos.ofi@gmail.com" class="contact__email-link"
+                            id="contact-email-link">oceballos.ofi@gmail.com</a>
+                    </p>
+                    <p class="contact__email">
+                        O llama al <a href="tel:+34652167639" class="contact__email-link" id="contact-phone-link">+34
+                            652 167 639</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  FOOTER                                                      -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__copy">
+                    <span class="mono">©</span> 2026 Oscar Ceballos Cano. Hecho con HTML, CSS &amp; curiosidad.
+                </p>
+                <p class="footer__tech mono">&lt;design-to-code /&gt;</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal Overlay -->
+    <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="modal-panel-title">
+        <div class="modal__overlay" id="modal-overlay"></div>
+        <div class="modal__panel">
+            <button class="modal__close" id="modal-close" aria-label="Cerrar detalle">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal__content" id="modal-content">
+                <!-- Data injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
