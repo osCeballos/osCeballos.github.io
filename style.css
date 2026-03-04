@@ -682,24 +682,27 @@ button {
 
 .bento {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem
+    /* Comportamiento fluido nativo sin media queries excesivas */
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
 }
 
 .bento__card {
     position: relative;
     border-radius: var(--r-lg);
-    border: 1px solid var(--border);
     background: var(--surface);
     overflow: hidden;
     display: grid;
-    grid-template-rows: auto 1fr;
-    transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
-    will-change: transform
+    grid-template-rows: 200px 1fr auto;
+    transition: outline var(--ease), box-shadow var(--ease), transform var(--spring);
+    /* Outline en vez de border para escalar sin reflow */
+    outline: 1px solid var(--border);
+    outline-offset: -1px;
 }
 
 .bento__card:hover {
-    border-color: var(--border-hover);
+    outline-color: var(--border-hover);
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-4px)
 }

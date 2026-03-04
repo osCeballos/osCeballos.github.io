@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Página no encontrada | Oscar Ceballos Cano</title>
+    <meta name="description" content="Página no encontrada en el portfolio de Oscar Ceballos Cano." />
+    <meta name="author" content="Oscar Ceballos Cano" />
+    <meta name="robots" content="noindex, follow" />
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://osceballos.github.io/404.html" />
+    <meta property="og:title" content="404 - Página no encontrada | Oscar Ceballos Cano" />
+    <meta property="og:description"
+        content="Parece que te has perdido en el espacio. Vuelve al inicio para ver mis proyectos de diseño y desarrollo." />
+    <meta property="og:image" content="https://osceballos.github.io/og-image.png" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="404 - Página no encontrada | Oscar Ceballos Cano" />
+    <meta name="twitter:description" content="Página no encontrada. Vuelve al inicio del portfolio." />
+    <meta name="twitter:image" content="https://osceballos.github.io/og-image.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://osceballos.github.io/404.html" />
+
+    <!-- Favicon SVG inline -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M 75 25 A 35 35 0 1 0 75 75' stroke='%238B5CF6' stroke-width='20' fill='none'/><polyline points='60 30 80 50 60 70' stroke='%2322C55E' stroke-width='16' fill='none' stroke-linejoin='miter'/></svg>" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Rutas Absolutas (GitHub Pages) -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <style>
+        /* ── Estilos Específicos para 404 ── */
+        .error-section {
+            /* Centrado Flexbox / Jerarquía visual */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - var(--nav-h) - 100px);
+            text-align: center;
+            padding: 4rem var(--pad);
+            position: relative;
+            z-index: 2;
+        }
+
+        .error-code {
+            font-size: clamp(6rem, 25vw, 14rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-mono);
+
+            /* Reaprovechar gradiente global */
+            background: var(--grad-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            /* Animación de Levitación Pura en CSS */
+            animation: float-404 5s ease-in-out infinite;
+        }
+
+        .error-message {
+            font-size: clamp(1.125rem, 3vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* En resoluciones pequeñas, ajustar la alineación/medidas */
+        @media (max-width: 768px) {
+            .error-section {
+                padding: 2rem var(--pad);
+            }
+        }
+
+        @keyframes float-404 {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                text-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+            }
+
+            50% {
+                transform: translateY(-20px);
+                text-shadow: 0 25px 30px rgba(139, 92, 246, 0.4);
+            }
+        }
+
+        /* ── Accesibilidad: Preferencias de Movimiento Reducido ── */
+        @media (prefers-reduced-motion: reduce) {
+            .error-code {
+                animation: none;
+                transform: none;
+                text-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Skip to content (WCAG 2.4.1) -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  NAV GLOBAL (Rutas absolutas)                               -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="container nav__container">
+            <div class="nav__logo">
+                <a href="/" style="display: flex; align-items: center; gap: .5rem; text-decoration: none;">
+                    <span class="nav__logo-text">OCC</span>
+                    <span class="nav__logo-dot" aria-hidden="true"></span>
+                </a>
+            </div>
+            <ul class="nav__links" role="list">
+                <li><a href="/#projects" class="nav__link">Proyectos</a></li>
+                <li><a href="/#stack" class="nav__link">Stack</a></li>
+                <li><a href="/#philosophy" class="nav__link">Filosofía</a></li>
+                <li><a href="/#contact" class="nav__link nav__link--cta" id="nav-contact-btn">Contacto</a></li>
+            </ul>
+            <button class="nav__menu-btn" id="nav-menu-btn" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="menu" aria-label="Menú móvil">
+        <ul class="mobile-nav__links" role="list">
+            <li><a href="/#projects" class="mobile-nav__link">Proyectos</a></li>
+            <li><a href="/#stack" class="mobile-nav__link">Stack</a></li>
+            <li><a href="/#philosophy" class="mobile-nav__link">Filosofía</a></li>
+            <li><a href="/#contact" class="mobile-nav__link">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  MAIN CONTENT (Error 404)                                   -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <main id="main-content">
+        <!-- Reutilizamos el fondo de 'noise' y 'grid' del hero base o simple solid dark -->
+        <section class="error-section" aria-label="Página no encontrada">
+
+            <div class="hero__noise" aria-hidden="true"></div>
+            <div class="hero__grid-lines" aria-hidden="true"></div>
+
+            <div class="container">
+                <h1 class="error-code" aria-label="Error 404">404</h1>
+                <p class="error-message">
+                    Parece que has navegado fuera de los límites. La página que buscas no existe o ha sido movida a otro
+                    espacio.
+                </p>
+                <a href="/" class="btn btn--primary btn--lg" aria-label="Volver a la página de inicio">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                        style="margin-right: 0.5rem; display: inline-block; vertical-align: text-bottom;">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Volver al inicio
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  FOOTER                                                      -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__copy">
+                    <span class="mono">©</span> 2026 Oscar Ceballos Cano. Hecho con HTML, CSS &amp; curiosidad.
+                </p>
+                <p class="footer__tech mono">&lt;design-to-code /&gt;</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Absolute path for global JS -->
+    <script src="/main.js"></script>
+</body>
+
+</html>

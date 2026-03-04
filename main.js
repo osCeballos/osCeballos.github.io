@@ -52,8 +52,8 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 })();
 
 
-/* ─── 2. TYPEWRITER — Hero role text ─── */
-(function initTypewriter() {
+/* ─── 2. TYPEWRITER — Hero role text (ES6 Async/Await) ─── */
+(async function initTypewriter() {
   const el = $('#typewriter');
   if (!el) return;
 
@@ -65,38 +65,30 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     'Creative Technologist',
   ];
 
-  let phraseIdx = 0;
-  let charIdx = 0;
-  let isDeleting = false;
-  let timeout;
-
-  function type() {
-    const current = phrases[phraseIdx];
-
-    if (isDeleting) {
-      charIdx--;
-    } else {
-      charIdx++;
-    }
-
-    el.textContent = current.slice(0, charIdx);
-
-    let delay = isDeleting ? 50 : 90;
-
-    if (!isDeleting && charIdx === current.length) {
-      delay = 2200; // pause at full word
-      isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-      isDeleting = false;
-      phraseIdx = (phraseIdx + 1) % phrases.length;
-      delay = 300;
-    }
-
-    timeout = setTimeout(type, delay);
-  }
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
 
   // Start after hero animation settles
-  timeout = setTimeout(type, 1200);
+  await sleep(1200);
+
+  while (true) {
+    for (const phrase of phrases) {
+      // Type
+      for (let i = 1; i <= phrase.length; i++) {
+        el.textContent = phrase.substring(0, i);
+        await sleep(90);
+      }
+
+      await sleep(2200); // pause at full word
+
+      // Delete
+      for (let i = phrase.length; i >= 0; i--) {
+        el.textContent = phrase.substring(0, i);
+        await sleep(50);
+      }
+
+      await sleep(300); // pause before next word
+    }
+  }
 })();
 
 
@@ -249,7 +241,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     background: radial-gradient(circle, rgba(139,92,246,.08) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
-    will-change: transform;
+    /* will-change removido para evitar VRAM leak/Layout Thrashing en móviles */
     transform: translate3d(-200px, -200px, 0);
     transition: opacity .3s ease;
     opacity: 0;
@@ -612,7 +604,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
       </div>
 
       <header class="modal__header">
-        <h2 class="modal__title" id="modal-title-id">${data.title}</h2>
+        <h2 class="modal__title" id="modal-panel-title">${data.title}</h2>
       </header>
 
       <div class="modal__body-grid">
@@ -682,22 +674,48 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     if (previousFocus) { previousFocus.focus(); previousFocus = null; }
   }
 
-  projectLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+  // 🚀 Event Delegation + Destructuring para los links de proyectos
+  const bentoGrid = $('.bento');
+  if (bentoGrid) {
+    bentoGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.bento__card-link[data-project]');
+      if (!btn) return;
+
       e.preventDefault();
-      previousFocus = e.currentTarget;  // Save triggering element (WCAG 2.4.3)
-      const id = link.getAttribute('data-project');
-      openModal(id);
+      previousFocus = btn;
+      const { project } = btn.dataset; // ES6 Destructuring
+      openModal(project);
     });
-  });
+  }
 
   modalClose.addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', closeModal);
 
-  // Close on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+  // 🚀 Focus Trap de accesibilidad (a11y) y cierre con Escape
+  modal.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
       closeModal();
+      return;
+    }
+
+    if (e.key === 'Tab') {
+      const focusableEls = [...modal.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])')];
+      if (!focusableEls.length) return;
+
+      const firstFocusable = focusableEls[0];
+      const lastFocusable = focusableEls[focusableEls.length - 1];
+
+      if (e.shiftKey) { // Shift + Tab
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else { // Tab
+        if (document.activeElement === lastFocusable || !focusableEls.includes(document.activeElement)) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
     }
   });
 })();
