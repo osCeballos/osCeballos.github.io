@@ -39,6 +39,7 @@
   /* Elevación y Fondos - Tinte sutil púrpura/azulado para coherencia */
   --bg: #09090E; 
   --bg-2: #121219; /* Ligeramente más claro para mejor distinción de --bg */
+  --btn-text: #09090E;
   --surface: #181822;
   --surface-2: #20202D;
 
@@ -62,14 +63,7 @@
   --info: #38BDF8;         /* Light Blue 400 */
   --success: #4ADE80;      /* Green 400, mejor contraste que 500 en dark mode */
   --success-light: #86EFAC;
-  --warning: #FBBF24;      /* Amber 400 */
-  --warning-light: #FDE047;
   
-  /* Mac Window Controls */
-  --mac-close: transparent; /* UI simplificada */
-  --mac-min: #FBBF24;
-  --mac-max: #4ADE80;
-
   /* Gradientes */
   --grad-purple: linear-gradient(135deg, #9D74FF 0%, #F472B6 100%);
   --grad-card: linear-gradient(160deg, color-mix(in srgb, var(--accent) 8%, transparent) 0%, color-mix(in srgb, var(--accent-alt) 4%, transparent) 100%);
@@ -101,11 +95,12 @@
 html.light-mode {
   --bg: #F9FAFB;
   --bg-2: #F3F4F6;
+  --btn-text: #FFFFFF;
   --surface: #FFFFFF;
   --surface-2: #E5E7EB;
   
-  --accent: #6D28D9;
-  --accent-light: #8B5CF6;
+  --accent: #7B3FF3;
+  --accent-light: #864DF5;
   --accent-dark: #4C1D95;
   --accent-glow: rgba(109, 40, 217, 0.15);
 
@@ -117,8 +112,6 @@ html.light-mode {
   --info: #0369A1;
   --success: #15803D;
   --success-light: #166534;
-  --warning: #B45309;
-  --warning-light: #92400E;
 
   --grad-purple: linear-gradient(135deg, var(--accent) 0%, var(--accent-alt) 100%);
   --grad-card: linear-gradient(160deg, color-mix(in srgb, var(--accent) 8%, transparent) 0%, color-mix(in srgb, var(--accent-alt) 4%, transparent) 100%);
@@ -314,9 +307,7 @@ button {
     animation-delay: .15s
 }
 
-/* ═══════════════════════════════════════════════════════
-   NAV
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 .nav {
     position: fixed;
     inset: 0 0 auto;
@@ -542,9 +533,7 @@ button {
     transform: scale(1.05)
 }
 
-/* ═══════════════════════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 .hero {
     position: relative;
     min-height: 100dvh;
@@ -704,9 +693,7 @@ button {
 
 
 
-/* ═══════════════════════════════════════════════════════
-   BUTTONS
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -722,7 +709,7 @@ button {
 
 .btn--primary {
     background: var(--accent);
-    color: #FFFFFF;
+    color: var(--btn-text);
     box-shadow: 0 4px 20px color-mix(in srgb, var(--accent) 35%, transparent)
 }
 
@@ -748,9 +735,7 @@ button {
     font-size: 1rem
 }
 
-/* ═══════════════════════════════════════════════════════
-   SECTION HEADERS
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 .section__header {
     margin-bottom: 3rem
 }
@@ -771,9 +756,7 @@ button {
     letter-spacing: -.03em
 }
 
-/* ═══════════════════════════════════════════════════════
-   PROJECTS — BENTO GRID
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 .projects {
     background: var(--bg-2)
 }
@@ -2121,9 +2104,7 @@ body.modal-open {
   }
 }
 
-/* ═══════════════════════════════════════════════════════
-   RESPONSIVE ≥ 768px
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 @media(min-width:768px) {
     :root {
         --pad: 2rem
@@ -2334,9 +2315,7 @@ body.modal-open {
     }
 }
 
-/* ═══════════════════════════════════════════════════════
-   RESPONSIVE ≥ 1024px
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 @media(min-width:1024px) {
     :root {
         --pad: 5rem
@@ -2365,9 +2344,7 @@ body.modal-open {
     }
 }
 
-/* ═══════════════════════════════════════════════════════
-   Reduced Motion
-   ═══════════════════════════════════════════════════════ */
+/* ===  === */
 @media(prefers-reduced-motion:reduce) {
 
     *,
