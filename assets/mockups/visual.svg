@@ -1,0 +1,18 @@
+<svg width="400" height="280" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="280" rx="16" fill="#0D0D0D" fill-opacity="0.9" stroke="#10B981" stroke-opacity="0.2"/>
+  
+  <!-- Nodes and Connections -->
+  <circle cx="100" cy="140" r="35" fill="#10B981" fill-opacity="0.1" stroke="#10B981" stroke-opacity="0.4"/>
+  <text x="100" y="145" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">XML</text>
+  
+  <line x1="135" y1="140" x2="215" y2="140" stroke="#10B981" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+  
+  <circle cx="250" cy="140" r="45" fill="#6D28D9" fill-opacity="0.1" stroke="#8B5CF6" stroke-opacity="0.4"/>
+  <text x="250" y="145" fill="#A78BFA" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">AI CORE</text>
+  
+  <line x1="295" y1="140" x2="340" y2="100" stroke="#EC4899" stroke-opacity="0.3"/>
+  <line x1="295" y1="140" x2="340" y2="180" stroke="#3B82F6" stroke-opacity="0.3"/>
+  
+  <circle cx="355" cy="90" r="20" fill="#EC4899" fill-opacity="0.1" stroke="#F472B6" stroke-opacity="0.4"/>
+  <circle cx="355" cy="190" r="20" fill="#3B82F6" fill-opacity="0.1" stroke="#60A5FA" stroke-opacity="0.4"/>
+</svg>

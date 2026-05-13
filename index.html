@@ -36,11 +36,77 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
-        rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
 
-    <link rel="stylesheet" href="style.css" />
+    <!-- Critical CSS (Above the fold) -->
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400 900;
+            font-display: swap;
+            src: local('Inter'), local('Inter-Regular');
+        }
+
+        :root {
+            --bg: #09090E; --bg-2: #121219; --surface: #181822; --surface-2: #20202D;
+            --accent: #9D74FF; --accent-light: #B79BFF; --accent-dark: #7E45F2;
+            --text-primary: #F3F4F6; --text-secondary: #AFAFC0; --text-muted: #8E8E9F;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif; --font-mono: 'JetBrains Mono', monospace;
+            --nav-h: 72px; --max-w: 1200px; --pad: 1.25rem; --r-sm: .5rem; --r-md: 1rem;
+            --r-full: 9999px; --ease: 300ms cubic-bezier(.4,0,.2,1);
+            --grad-purple: linear-gradient(135deg, #9D74FF 0%, #F472B6 100%);
+            --border: rgba(157,116,255,0.15);
+        }
+        html.light-mode {
+            --bg: #F9FAFB; --bg-2: #F3F4F6; --surface: #FFFFFF; --accent: #6D28D9;
+            --text-primary: #111827; --text-secondary: #374151; --text-muted: #525A6A;
+            --grad-purple: linear-gradient(135deg, #6D28D9 0%, #DB2777 100%);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: var(--font-sans); background: var(--bg); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+        .container { width: 100%; max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad) }
+        
+        .nav { position: fixed; inset: 0 0 auto; z-index: 100; height: var(--nav-h); background: rgba(9,9,14,0.7); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: transform var(--ease); }
+        .nav__container { display: flex; align-items: center; justify-content: space-between; height: 100%; margin-inline: auto; width: 100%; max-width: var(--max-w); padding-inline: var(--pad); }
+        .nav__logo { display: flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-weight: 700; font-size: 1.125rem; letter-spacing: .1em; }
+        .nav__logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+        .hero { position: relative; min-height: 100dvh; display: flex; flex-direction: column; overflow: hidden; justify-content: center; text-align: center; }
+        .hero__container { position: relative; z-index: 2; margin-inline: auto; width: 100%; max-width: var(--max-w); padding-inline: var(--pad); }
+        .hero__badge { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border: 1px solid var(--border); border-radius: var(--r-full); font-size: .75rem; color: var(--text-secondary); background: rgba(157,116,255,0.05); margin-bottom: 1.5rem; }
+        .hero__badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; position: relative; }
+        .hero__name { font-size: clamp(3rem, 12vw, 4.5rem); font-weight: 900; line-height: 1; letter-spacing: -.04em; margin-bottom: 1rem; min-height: clamp(3rem, 12vw, 4.5rem); }
+        .hero__name-accent { background: var(--grad-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero__role { font-size: clamp(1.25rem, 4vw, 1.5rem); color: var(--text-secondary); margin-bottom: 1.5rem; min-height: clamp(1.25rem, 4vw, 1.5rem); display: flex; justify-content: center; align-items: center; gap: .5rem; }
+        .hero__tagline { font-size: 1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 640px; margin-inline: auto; }
+        .hero__actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+        
+        .btn { display: inline-flex; align-items: center; padding: .75rem 1.5rem; border-radius: var(--r-full); font-size: .875rem; font-weight: 600; transition: all var(--ease); white-space: nowrap; }
+        .btn--primary { background: var(--accent); color: #FFFFFF; }
+        .btn--ghost { border: 1px solid var(--border); color: var(--text-primary); }
+
+        @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out both }
+    </style>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.min.css">
+
+    <!-- Performance: Deferred Scripts -->
+    <script src="main-critical.js" defer></script>
+    <script>
+        // Load heavy visual effects only after the page is fully ready
+        window.addEventListener('load', () => {
+            const script = document.createElement('script');
+            script.src = 'main-particle.js';
+            script.defer = true;
+            document.head.appendChild(script);
+        });
+    </script>
 
     <!-- JSON-LD: Structured Data (Google Rich Results) -->
     <script type="application/ld+json">
@@ -50,10 +116,24 @@
       "name": "Oscar Ceballos Cano",
       "jobTitle": "UX/UI Designer & Front-End Developer",
       "url": "https://osceballos.github.io/",
+      "mainEntityOfPage": "https://osceballos.github.io/",
+      "image": "https://osceballos.github.io/og-image.png",
       "email": "oceballos.ofi@gmail.com",
       "telephone": "+34652167639",
-      "sameAs": ["https://www.linkedin.com/in/oscar-ceballos-cano-ba11aa343"],
-      "knowsAbout": ["UX Design", "UI Design", "Figma", "JavaScript", "CSS", "Design Systems", "AI Workflows"]
+      "sameAs": [
+        "https://www.linkedin.com/in/oscar-ceballos-cano-ba11aa343",
+        "https://github.com/osCeballos"
+      ],
+      "knowsAbout": [
+        "UX Design",
+        "UI Design",
+        "Figma",
+        "JavaScript",
+        "CSS",
+        "Design Systems",
+        "AI Workflows",
+        "WCAG 2.2 Accessibility"
+      ]
     }
     </script>
 </head>
@@ -63,9 +143,7 @@
     <!-- Skip to content (WCAG 2.4.1) -->
     <a href="#projects" class="skip-link">Saltar al contenido principal</a>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!--  NAV                                                        -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- NAV -->
     <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="container nav__container">
             <a href="#hero" class="nav__logo" aria-label="Ir al inicio">
@@ -106,19 +184,17 @@
     </nav>
 
     <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="menu" aria-label="Menú móvil">
-        <ul class="mobile-nav__links" role="list">
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Menú móvil">
+        <ul class="mobile-nav__links">
             <li><a href="#projects" class="mobile-nav__link">Proyectos</a></li>
             <li><a href="#stack" class="mobile-nav__link">Stack</a></li>
             <li><a href="#philosophy" class="mobile-nav__link">Filosofía</a></li>
             <li><a href="#contact" class="mobile-nav__link">Contacto</a></li>
         </ul>
-    </div>
+    </nav>
 
     <main>
-        <!-- ═══════════════════════════════════════════════════════════ -->
-        <!--  HERO                                                       -->
-        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- HERO -->
         <section class="hero" id="hero" aria-label="Presentación">
             <div class="hero__noise" aria-hidden="true"></div>
             <div class="hero__grid-lines" aria-hidden="true"></div>
@@ -135,10 +211,8 @@
                         <span class="hero__name-accent">Ceballos</span>
                     </h1>
 
-                    <p class="hero__role animate-slide-up animate-delay-1" aria-label="UX/UI Designer &amp; Front-End Developer">
-                        <span class="hero__role-static" aria-hidden="true">UX/UI Designer </span>
-                        <span class="hero__role-separator" aria-hidden="true">&amp;</span>
-                        <span class="hero__role-dynamic" id="typewriter" aria-hidden="true">Front-End Developer</span>
+                    <p class="hero__role animate-slide-up animate-delay-1">
+                        UX/UI Designer &amp; <span class="hero__role-dynamic" id="typewriter">Front-End Developer</span>
                     </p>
 
 
@@ -195,9 +269,7 @@
 
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════════ -->
-        <!--  PROJECTS — BENTO GRID                                      -->
-        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- PROJECTS — BENTO GRID -->
         <section class="projects section" id="projects" aria-label="Proyectos destacados">
             <div class="container">
                 <header class="section__header reveal">
@@ -206,23 +278,15 @@
                     </h2>
                 </header>
 
-                <div class="bento" role="list">
+                <div class="bento">
 
                     <!-- Card 1 — Figma AI Agent System (FEATURED - WIDE) -->
-                    <article class="bento__card bento__card--wide reveal" role="listitem" aria-label="Proyecto Figma AI Agent System v2.0">
+                    <article class="bento__card bento__card--wide reveal" aria-label="Proyecto Figma AI Agent System v2.0">
                         <div class="bento__card-img bento__card-img--ui" aria-hidden="true">
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
-                            <div class="bento__card-mockup ui-mockup">
-                                <div class="ui-mockup__nav">
-                                    <div class="ui-mockup__logo"></div>
-                                    <div class="ui-mockup__links"><span></span><span></span><span></span></div>
-                                </div>
-                                <div style="padding: 1rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.65rem; line-height: 1.4;">
-                                    [ MCP_SERVER: RUNNING ]<br/>
-                                    &gt; figma-director active<br/>
-                                    &gt; optimizing accessibility
-                                </div>
+                            <div class="bento__card-mockup">
+                                <img src="./assets/mockups/ui.svg" alt="Mockup de interfaz de usuario" loading="lazy">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -244,19 +308,12 @@
                     </article>
 
                     <!-- Card 2 — Avallain Author (TALL) -->
-                    <article class="bento__card bento__card--tall reveal" role="listitem" aria-label="Experiencia EdTech Avallain Author">
+                    <article class="bento__card bento__card--tall reveal" aria-label="Experiencia EdTech Avallain Author">
                         <div class="bento__card-img bento__card-img--ai" aria-hidden="true">
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
-                            <div class="bento__card-mockup ai-mockup">
-                                <div class="ai-mockup__prompt">
-                                    <span class="mono">&gt; Agents: validate &amp; auto-fix WCAG</span>
-                                </div>
-                                <div class="ai-mockup__output">
-                                    <div class="ai-mockup__line"></div>
-                                    <div class="ai-mockup__line shorter"></div>
-                                    <div class="ai-mockup__line" style="width: 80%"></div>
-                                </div>
+                            <div class="bento__card-mockup">
+                                <img src="./assets/mockups/ai.svg" alt="Mockup de agentes de IA" loading="lazy">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -273,15 +330,13 @@
                     </article>
 
                     <!-- Card 3 — Agentic Workflows -->
-                    <article class="bento__card reveal" role="listitem"
+                    <article class="bento__card reveal"
                         aria-label="Proyecto Agentic Workflows & Legacy Architecture">
                         <div class="bento__card-img bento__card-img--visual" aria-hidden="true">
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
-                            <div class="bento__card-mockup visual-mockup">
-                                <div class="visual-mockup__node visual-mockup__node--1"><span class="mono">XML</span></div>
-                                <div class="visual-mockup__connector visual-mockup__connector--1"></div>
-                                <div class="visual-mockup__node visual-mockup__node--2"><span class="mono">AI</span></div>
+                            <div class="bento__card-mockup">
+                                <img src="./assets/mockups/visual.svg" alt="Mockup de flujo de trabajo" loading="lazy">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -298,18 +353,12 @@
                     </article>
 
                     <!-- Card 4 — Sant Vicenç Smart City -->
-                    <article class="bento__card reveal" role="listitem" aria-label="Proyecto Sant Vicenç Smart City">
+                    <article class="bento__card reveal" aria-label="Proyecto Sant Vicenç Smart City">
                         <div class="bento__card-img bento__card-img--city" aria-hidden="true">
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
-                            <div class="bento__card-mockup city-mockup">
-                                <div class="city-mockup__header"><span></span><span></span><span></span></div>
-                                <div class="city-mockup__grid">
-                                    <div class="city-mockup__stat"><span class="mono">AQI</span><small>Optimal</small>
-                                    </div>
-                                    <div class="city-mockup__stat"><span class="mono">LIVE</span><small>Traffic</small>
-                                    </div>
-                                </div>
+                            <div class="bento__card-mockup">
+                                <img src="./assets/mockups/city.svg" alt="Mockup de Smart City" loading="lazy">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -330,9 +379,7 @@
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════════ -->
-        <!--  TECH STACK                                                  -->
-        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- TECH STACK -->
         <section class="stack section" id="stack" aria-label="Tecnologías">
             <div class="container">
                 <header class="section__header reveal">
@@ -355,7 +402,7 @@
                         </div>
                         <h3 class="stack__name">Figma</h3>
                         <p class="stack__desc">Design & Prototyping</p>
-                        <div class="stack__level" aria-label="Nivel experto">
+                        <div class="stack__level" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Nivel experto">
                             <div class="stack__level-bar" style="--level: 95%"></div>
                         </div>
                     </div>
@@ -367,7 +414,7 @@
                         </div>
                         <h3 class="stack__name">HTML5 / CSS3</h3>
                         <p class="stack__desc">Markup & Styles</p>
-                        <div class="stack__level" aria-label="Nivel avanzado">
+                        <div class="stack__level" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Nivel avanzado">
                             <div class="stack__level-bar" style="--level: 88%"></div>
                         </div>
                     </div>
@@ -379,7 +426,7 @@
                         </div>
                         <h3 class="stack__name">JavaScript</h3>
                         <p class="stack__desc">Vanilla JS & Interactions</p>
-                        <div class="stack__level" aria-label="Nivel intermedio">
+                        <div class="stack__level" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Nivel intermedio">
                             <div class="stack__level-bar" style="--level: 50%"></div>
                         </div>
                     </div>
@@ -391,7 +438,7 @@
                         </div>
                         <h3 class="stack__name">AI Workflows</h3>
                         <p class="stack__desc">Prompt Eng. & Automation</p>
-                        <div class="stack__level" aria-label="Nivel avanzado">
+                        <div class="stack__level" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Nivel avanzado">
                             <div class="stack__level-bar" style="--level: 90%"></div>
                         </div>
                     </div>
@@ -403,7 +450,7 @@
                         </div>
                         <h3 class="stack__name">UX Research</h3>
                         <p class="stack__desc">Interviews & Testing</p>
-                        <div class="stack__level" aria-label="Nivel experto">
+                        <div class="stack__level" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Nivel experto">
                             <div class="stack__level-bar" style="--level: 92%"></div>
                         </div>
                     </div>
@@ -415,7 +462,7 @@
                         </div>
                         <h3 class="stack__name">Design Systems</h3>
                         <p class="stack__desc">Tokens & Components</p>
-                        <div class="stack__level" aria-label="Nivel avanzado">
+                        <div class="stack__level" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Nivel avanzado">
                             <div class="stack__level-bar" style="--level: 85%"></div>
                         </div>
                     </div>
@@ -424,9 +471,7 @@
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════════ -->
-        <!--  PHILOSOPHY                                                  -->
-        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- PHILOSOPHY -->
         <section class="philosophy section" id="philosophy" aria-label="Experiencia y filosofía">
             <div class="container">
                 <header class="section__header reveal">
@@ -511,9 +556,7 @@
             </div>
         </section>
 
-        <!-- ═══════════════════════════════════════════════════════════ -->
-        <!--  CONTACT                                                     -->
-        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!-- CONTACT -->
         <section class="contact section" id="contact" aria-label="Sección de contacto">
             <div class="container">
                 <div class="contact__inner reveal">
@@ -550,9 +593,7 @@
         </section>
     </main>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!--  FOOTER                                                      -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__inner">
@@ -582,7 +623,6 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
 </body>
 
 </html>

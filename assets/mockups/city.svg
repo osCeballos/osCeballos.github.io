@@ -1,0 +1,29 @@
+<svg width="400" height="280" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="280" rx="16" fill="#111111" fill-opacity="0.9" stroke="#6D28D9" stroke-opacity="0.3"/>
+  
+  <!-- Window Header -->
+  <circle cx="24" cy="24" r="5" fill="#FF5F57"/>
+  <circle cx="44" cy="24" r="5" fill="#FEBC2E"/>
+  <circle cx="64" cy="24" r="5" fill="#28C840"/>
+  
+  <!-- Grid Stats -->
+  <rect x="20" y="50" width="170" height="80" rx="8" fill="#6D28D9" fill-opacity="0.1" stroke="#6D28D9" stroke-opacity="0.2"/>
+  <text x="35" y="85" fill="#8B5CF6" font-family="monospace" font-size="24" font-weight="bold">AQI 42</text>
+  <text x="35" y="110" fill="#9CA3AF" font-family="sans-serif" font-size="10">CALIDAD AIRE</text>
+  
+  <rect x="210" y="50" width="170" height="80" rx="8" fill="#6D28D9" fill-opacity="0.1" stroke="#6D28D9" stroke-opacity="0.2"/>
+  <text x="225" y="85" fill="#8B5CF6" font-family="monospace" font-size="24" font-weight="bold">12 km/h</text>
+  <text x="225" y="110" fill="#9CA3AF" font-family="sans-serif" font-size="10">TRÁFICO</text>
+  
+  <rect x="20" y="145" width="170" height="80" rx="8" fill="#6D28D9" fill-opacity="0.1" stroke="#6D28D9" stroke-opacity="0.2"/>
+  <text x="35" y="180" fill="#8B5CF6" font-family="monospace" font-size="24" font-weight="bold">87%</text>
+  <text x="35" y="205" fill="#9CA3AF" font-family="sans-serif" font-size="10">TRANSPORTE</text>
+  
+  <rect x="210" y="145" width="170" height="80" rx="8" fill="#6D28D9" fill-opacity="0.1" stroke="#6D28D9" stroke-opacity="0.2"/>
+  <text x="225" y="180" fill="#8B5CF6" font-family="monospace" font-size="24" font-weight="bold">2.4°C</text>
+  <text x="225" y="205" fill="#9CA3AF" font-family="sans-serif" font-size="10">TEMPERATURA</text>
+  
+  <!-- Chart -->
+  <path d="M20 260 L60 240 L100 250 L140 220 L180 230 L220 200 L260 215 L300 190 L340 205 L380 185" stroke="#6D28D9" stroke-width="2" fill="none"/>
+  <path d="M20 260 L60 240 L100 250 L140 220 L180 230 L220 200 L260 215 L300 190 L340 205 L380 185 L380 280 L20 280 Z" fill="#6D28D9" fill-opacity="0.1"/>
+</svg>

@@ -34,15 +34,38 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
-        rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
 
-    <!-- Rutas Absolutas (GitHub Pages) -->
-    <link rel="stylesheet" href="/style.css" />
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/style.min.css">
+
+    <!-- Performance: Deferred Scripts -->
+    <script src="/main-critical.js" defer></script>
+    <script>
+        window.addEventListener('load', () => {
+            const script = document.createElement('script');
+            script.src = '/main-particle.js';
+            script.defer = true;
+            document.head.appendChild(script);
+        });
+    </script>
 
     <style>
-        /* ── Estilos Específicos para 404 ── */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400 900;
+            font-display: swap;
+            src: local('Inter'), local('Inter-Regular');
+        }
+
+        :root {
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* Estilos específicos para 404 */
         .error-section {
             /* Centrado Flexbox / Jerarquía visual */
             display: flex;
@@ -105,7 +128,7 @@
             }
         }
 
-        /* ── Accesibilidad: Preferencias de Movimiento Reducido ── */
+        /* Accesibilidad: Movimiento reducido */
         @media (prefers-reduced-motion: reduce) {
             .error-code {
                 animation: none;
@@ -121,9 +144,7 @@
     <!-- Skip to content (WCAG 2.4.1) -->
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!--  NAV GLOBAL (Rutas absolutas)                               -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- NAV GLOBAL (Rutas absolutas) -->
     <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="container nav__container">
             <a href="/" class="nav__logo" aria-label="Ir al inicio">
@@ -146,18 +167,16 @@
     </nav>
 
     <!-- Mobile Nav Overlay -->
-    <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="menu" aria-label="Menú móvil">
-        <ul class="mobile-nav__links" role="list">
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Menú móvil">
+        <ul class="mobile-nav__links">
             <li><a href="/#projects" class="mobile-nav__link">Proyectos</a></li>
             <li><a href="/#stack" class="mobile-nav__link">Stack</a></li>
             <li><a href="/#philosophy" class="mobile-nav__link">Filosofía</a></li>
             <li><a href="/#contact" class="mobile-nav__link">Contacto</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!--  MAIN CONTENT (Error 404)                                   -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- MAIN CONTENT (Error 404) -->
     <main id="main-content">
         <!-- Reutilizamos el fondo de 'noise' y 'grid' del hero base o simple solid dark -->
         <section class="error-section" aria-label="Página no encontrada">
@@ -166,7 +185,7 @@
             <div class="hero__grid-lines" aria-hidden="true"></div>
 
             <div class="container">
-                <h1 class="error-code" aria-label="Error 404">404</h1>
+                <h1 class="error-code">404</h1>
                 <p class="error-message">
                     Parece que has navegado fuera de los límites. La página que buscas no existe o ha sido movida a otro
                     espacio.
@@ -184,9 +203,7 @@
         </section>
     </main>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!--  FOOTER                                                      -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer__inner">
@@ -198,8 +215,6 @@
         </div>
     </footer>
 
-    <!-- Absolute path for global JS -->
-    <script src="/main.js"></script>
 </body>
 
 </html>
