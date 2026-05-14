@@ -296,10 +296,10 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   function getHeroGraphic(type) {
     const map = {
-      'ai-mockup': `<img src="./assets/mockups/ai.svg" alt="Mockup de IA" class="mockup--full-w">`,
-      'city-mockup': `<img src="./assets/mockups/city.svg" alt="Mockup Smart City" class="mockup--full-w">`,
-      'ui-mockup': `<img src="./assets/mockups/ui.svg" alt="Mockup UI" class="mockup--full-w">`,
-      'visual-mockup': `<img src="./assets/mockups/visual.svg" alt="Mockup Visual" class="mockup--full-w">`
+      'ai-mockup': `<img src="./assets/mockups/ai.svg" alt="Mockup de IA" width="400" height="280" class="mockup--full-w">`,
+      'city-mockup': `<img src="./assets/mockups/city.svg" alt="Mockup Smart City" width="400" height="280" class="mockup--full-w">`,
+      'ui-mockup': `<img src="./assets/mockups/ui.svg" alt="Mockup UI" width="400" height="280" class="mockup--full-w">`,
+      'visual-mockup': `<img src="./assets/mockups/visual.svg" alt="Mockup Visual" width="400" height="280" class="mockup--full-w">`
     };
     return map[type] || map['ai-mockup'];
   }
