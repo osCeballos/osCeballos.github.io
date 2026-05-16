@@ -295,11 +295,13 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   };
 
   function getHeroGraphic(type) {
+    const isLight = document.documentElement.classList.contains('light-mode');
+    const suffix = isLight ? '-light' : '';
     const map = {
-      'ai-mockup': `<img src="./assets/mockups/ai.svg" alt="Mockup de IA" width="400" height="280" class="mockup--full-w">`,
-      'city-mockup': `<img src="./assets/mockups/city.svg" alt="Mockup Smart City" width="400" height="280" class="mockup--full-w">`,
-      'ui-mockup': `<img src="./assets/mockups/ui.svg" alt="Mockup UI" width="400" height="280" class="mockup--full-w">`,
-      'visual-mockup': `<img src="./assets/mockups/visual.svg" alt="Mockup Visual" width="400" height="280" class="mockup--full-w">`
+      'ai-mockup': `<img src="./assets/mockups/ai${suffix}.svg" alt="Mockup de IA" width="400" height="280" class="mockup--full-w">`,
+      'city-mockup': `<img src="./assets/mockups/city${suffix}.svg" alt="Mockup Smart City" width="400" height="280" class="mockup--full-w">`,
+      'ui-mockup': `<img src="./assets/mockups/ui${suffix}.svg" alt="Mockup UI" width="400" height="280" class="mockup--full-w">`,
+      'visual-mockup': `<img src="./assets/mockups/visual${suffix}.svg" alt="Mockup Visual" width="400" height="280" class="mockup--full-w">`
     };
     return map[type] || map['ai-mockup'];
   }

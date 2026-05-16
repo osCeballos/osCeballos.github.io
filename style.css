@@ -930,7 +930,8 @@ button {
     gap: .25rem;
     transition: gap var(--ease), color var(--ease);
     align-self: flex-start;
-    position: relative
+    position: relative;
+    outline: none
 }
 
 /* Fitts's Law: expand click target to the full card */
@@ -946,27 +947,48 @@ button {
     gap: .5rem
 }
 
-/* Card Mockups */
-.bento__card-mockup {
-    position: relative;
-    z-index: 20;
-    width: 90%;
-    max-width: 320px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Restore keyboard focus ring for accessibility */
+.bento__card-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: var(--r-sm)
 }
 
-.bento__card-mockup img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--r-md);
+/* Card Mockups */
+.bento__card-mockup {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 20;
+    pointer-events: none;
     transition: transform var(--ease);
 }
 
-.bento__card:hover .bento__card-mockup img {
-    transform: scale(1.02);
+.bento__card-mockup img {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+    max-height: 90%;
+    object-fit: contain;
+    object-position: bottom;
+    border-radius: var(--r-md) var(--r-md) 0 0;
+    transition: transform var(--ease), box-shadow var(--ease);
 }
+
+.bento__card:hover .bento__card-mockup {
+    transform: translateY(-4px);
+}
+
+.bento__card:hover .bento__card-mockup img {
+    transform: scale(1.015);
+}
+
+/* Theme-specific Mockups Visibility */
+.mockup--light { display: none; }
+html.light-mode .mockup--light { display: block; }
+html.light-mode .mockup--dark { display: none; }
 
 /* TECH STACK */
 .stack {

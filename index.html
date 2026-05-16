@@ -31,7 +31,7 @@
 
     <!-- Favicon SVG inline -->
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M 75 25 A 35 35 0 1 0 75 75' stroke='%238B5CF6' stroke-width='20' fill='none'/><polyline points='60 30 80 50 60 70' stroke='%2322C55E' stroke-width='16' fill='none' stroke-linejoin='miter'/></svg>" />
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 75 25 A 35 35 0 1 0 75 75' stroke='%238B5CF6' stroke-width='20' fill='none'/%3E%3Cpolyline points='60 30 80 50 60 70' stroke='%2322C55E' stroke-width='16' fill='none' stroke-linejoin='miter'/%3E%3C/svg%3E" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,7 +94,7 @@
     </style>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Performance: Deferred Scripts -->
     <script src="main-critical.js" defer></script>
@@ -286,7 +286,8 @@
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
                             <div class="bento__card-mockup">
-                                <img src="./assets/mockups/ui.svg" alt="Mockup de interfaz de usuario" width="400" height="280" loading="lazy">
+                                <img src="./assets/mockups/ui.svg" alt="Mockup de interfaz de usuario" width="400" height="280" loading="lazy" class="mockup--dark">
+                                <img src="./assets/mockups/ui-light.svg" alt="Mockup de interfaz de usuario" width="400" height="280" loading="lazy" class="mockup--light">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -313,7 +314,8 @@
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
                             <div class="bento__card-mockup">
-                                <img src="./assets/mockups/ai.svg" alt="Mockup de agentes de IA" width="400" height="280" loading="lazy">
+                                <img src="./assets/mockups/ai.svg" alt="Mockup de agentes de IA" width="400" height="280" loading="lazy" class="mockup--dark">
+                                <img src="./assets/mockups/ai-light.svg" alt="Mockup de agentes de IA" width="400" height="280" loading="lazy" class="mockup--light">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -336,7 +338,8 @@
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
                             <div class="bento__card-mockup">
-                                <img src="./assets/mockups/visual.svg" alt="Mockup de flujo de trabajo" width="400" height="280" loading="lazy">
+                                <img src="./assets/mockups/visual.svg" alt="Mockup de flujo de trabajo" width="400" height="280" loading="lazy" class="mockup--dark">
+                                <img src="./assets/mockups/visual-light.svg" alt="Mockup de flujo de trabajo" width="400" height="280" loading="lazy" class="mockup--light">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -358,7 +361,8 @@
                             <div class="bento__card-glow"></div>
                             <div class="bento__card-overlay"></div>
                             <div class="bento__card-mockup">
-                                <img src="./assets/mockups/city.svg" alt="Mockup de Smart City" width="400" height="280" loading="lazy">
+                                <img src="./assets/mockups/city.svg" alt="Mockup de Smart City" width="400" height="280" loading="lazy" class="mockup--dark">
+                                <img src="./assets/mockups/city-light.svg" alt="Mockup de Smart City" width="400" height="280" loading="lazy" class="mockup--light">
                             </div>
                         </div>
                         <div class="bento__card-body">
@@ -531,7 +535,7 @@
                 </div><!-- /philosophy__grid -->
 
                 <!-- Stats bar -->
-                <div class="stats reveal" aria-label="Estadísticas profesionales">
+                <div class="stats reveal" role="region" aria-label="Estadísticas profesionales">
                     <div class="stats__item">
                         <span class="stats__number mono" data-target="6">0</span><span class="stats__suffix">+</span>
                         <p class="stats__label">Años en diseño</p>

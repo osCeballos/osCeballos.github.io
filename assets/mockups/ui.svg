@@ -1,5 +1,5 @@
 <svg width="400" height="280" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="400" height="280" rx="16" fill="#111111" fill-opacity="0.9" stroke="#6D28D9" stroke-opacity="0.2"/>
+  <path d="M0 16C0 7.16344 7.16344 0 16 0H384C392.837 0 400 7.16344 400 16V280H0V16Z" fill="#111111" fill-opacity="0.9" stroke="#6D28D9" stroke-opacity="0.2"/>
   
   <!-- Nav Bar -->
   <rect width="400" height="40" rx="0" fill="#6D28D9" fill-opacity="0.08"/>
